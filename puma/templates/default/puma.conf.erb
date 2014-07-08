@@ -24,7 +24,7 @@ rackup "<%= @deploy[:deploy_to] %>/current/config.ru"
 environment "<%= @deploy[:rails_env] %>"
 
 # Bind to a unix socket without umask definitions
-bind "<%= @deploy[:deploy_to] %>/shared/sockets/puma.sock"
+bind "unix://<%= @deploy[:deploy_to] %>/shared/sockets/puma.sock"
 
 # Make use of the advanced GC in 2.0 (?)
 GC.copy_on_write_friendly = true if GC.respond_to?(:copy_on_write_friendly=)
